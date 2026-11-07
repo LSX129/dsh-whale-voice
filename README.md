@@ -206,6 +206,8 @@ edge-tts neural voices into the harness: pick a voice, rate and pitch under *Set
 and every assistant message gets a **🔊 Read aloud** button (plus optional auto-speak).
 
 Requires Python 3.8+. Run `py -m pip install --upgrade --target pylibs edge-tts` once (or
-`npm run setup`) to install the Python dependencies into `pylibs/`, install this directory as a
-bundle into your Harness profile, then reload and refresh. Audio is synthesized locally; only the text to be spoken is sent to Microsoft's
-speech service. Licensed MIT.
+`npm run setup`) to install the Python dependencies into `pylibs/`, then add the plugin via
+**Add plugin** using the repository URL `https://github.com/LSX129/dsh-whale-voice` (or the
+absolute path of this directory), reload it, and refresh. This plugin is **not published to
+npm**, so the bare package name will not resolve. Audio is synthesized locally; only the text to
+be spoken is sent to Microsoft's speech service. Licensed MIT.
