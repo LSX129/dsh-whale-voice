@@ -12,9 +12,11 @@
 
 ![设置页与朗读按钮示意](docs/preview.svg)
 
-## 一分钟安装
+## 安装 / 更新
 
-前置：**DeepSeek Harness 桌面版** + **Python 3.8+**。
+### 先把 Python 依赖装上（只需一次）
+
+仓库不提交第三方 Python 代码，克隆后跑一次：
 
 ```bash
 git clone https://github.com/LSX129/dsh-whale-voice.git
@@ -25,11 +27,31 @@ py -m pip install --upgrade --target pylibs edge-tts    # macOS / Linux: python3
 > Windows 上 `py` 是 Python 官方启动器；用别的解释器就换成你自己的 `python`。
 > 仓库里也带了等价脚本 `node scripts/setup.mjs`——它会顺带处理 pip 跨盘移动的临时目录问题，有 Node 环境时更稳。
 
-1. 上面两行 = 取代码 + 装好 edge-tts 依赖（装进仓库自己的 `pylibs/`，不污染你的全局 Python）。
-2. 回 Harness：**设置 › 插件 › 从本地目录安装**，选 clone 下来的文件夹；装好后把该插件**关掉再打开**重载一次，再刷新页面。
-3. 打开 **设置 › 鲸语**，挑一个音色、点「试听这一档」。听满意，就去任意一条回复下面点「朗读」。
+### 在 DeepSeek Harness 网页版或桌面版中安装
 
-卡住了看下面的[详细安装](#安装)和[已知限制](#已知限制)。
+在 **Add plugin** 向导的输入框里填写 GitHub 仓库地址或本地目录路径，然后点击 **Install**：
+
+![在 Add plugin 向导中安装](docs/install-dialog.png)
+
+装好后把「鲸语」**关掉再打开**重载一次，刷新页面，打开 **设置 › 鲸语** 挑一个音色、点「试听这一档」。
+
+### 使用 dsh CLI 安装
+
+从本地目录安装 `dsh-whale-voice` 插件：
+
+```bash
+dsh plugin --profile web add D:\path\to\dsh-whale-voice
+```
+
+或更新 `dsh-whale-voice` 插件：
+
+```bash
+dsh plugin --profile web update dsh-whale-voice@latest
+```
+
+> `--profile web` 换成你实际在用的 profile；CLI 参数以你的 DSH 版本为准，装不上就走上面的图形界面。
+
+卡住了看下面的[详细安装](#详细安装)和[已知限制](#已知限制)。
 
 ---
 
@@ -43,7 +65,7 @@ py -m pip install --upgrade --target pylibs edge-tts    # macOS / Linux: python3
 - **朗读稿清洗**：标点不念出声、代码块整段跳过、链接只念标题、emoji 与 Markdown 记号都跳过。
 - **自带音色降级**：配置里存了已删除的音色也会回落到默认，不会哑火。
 
-## 安装
+## 详细安装
 
 前置条件：**DeepSeek Harness 桌面版**，以及 **Python 3.8+**（Windows 上用 `py` 启动器也行）。
 
