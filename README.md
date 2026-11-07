@@ -1,11 +1,35 @@
 # 鲸语 · dsh-whale-voice
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-3d6fe0.svg)](LICENSE)
+[![DSH plugin](https://img.shields.io/badge/DeepSeek%20Harness-plugin-4b8bff.svg)](https://github.com/deepseek-ai)
+
 > 给 [DeepSeek Harness](https://github.com/deepseek-ai) 装一副「海星」式的嗓子。
 
 把微软 **edge-tts** 的神经语音接进 Harness：设置页里调音色、语速、音调，每条助手回复下面多一个
 **🔊 朗读** 按钮，也可以开自动朗读，让新回复自己念出来。
 
 语音完全在**你本机**的 Python 子进程里合成，只有要朗读的文字会发给微软的语音服务，不经过任何第三方中转。
+
+![设置页与朗读按钮示意](docs/preview.svg)
+
+## 一分钟安装
+
+前置：**DeepSeek Harness 桌面版** + **Python 3.8+**。
+
+```bash
+git clone https://github.com/LSX129/dsh-whale-voice.git
+cd dsh-whale-voice
+py -m pip install --upgrade --target pylibs edge-tts    # macOS / Linux: python3 -m pip ...
+```
+
+> Windows 上 `py` 是 Python 官方启动器；用别的解释器就换成你自己的 `python`。
+> 仓库里也带了等价脚本 `node scripts/setup.mjs`——它会顺带处理 pip 跨盘移动的临时目录问题，有 Node 环境时更稳。
+
+1. 上面两行 = 取代码 + 装好 edge-tts 依赖（装进仓库自己的 `pylibs/`，不污染你的全局 Python）。
+2. 回 Harness：**设置 › 插件 › 从本地目录安装**，选 clone 下来的文件夹；装好后把该插件**关掉再打开**重载一次，再刷新页面。
+3. 打开 **设置 › 鲸语**，挑一个音色、点「试听这一档」。听满意，就去任意一条回复下面点「朗读」。
+
+卡住了看下面的[详细安装](#安装)和[已知限制](#已知限制)。
 
 ---
 
@@ -34,9 +58,13 @@ git clone https://github.com/LSX129/dsh-whale-voice.git
 仓库不提交第三方 Python 代码（体积大、许可各异），克隆后跑一次：
 
 ```bash
-npm run setup
-# 等价于：node scripts/setup.mjs
-# 等价于：pip install --upgrade --target pylibs edge-tts
+py -m pip install --upgrade --target pylibs edge-tts
+```
+
+有 Node 环境的话也可以用仓库自带的等价脚本（会顺带处理 pip 跨盘移动的临时目录问题）：
+
+```bash
+npm run setup                 # 等价于 node scripts/setup.mjs
 ```
 
 默认装进插件目录下的 `pylibs/`。如果插件目录只读，改用用户目录：
@@ -141,7 +169,7 @@ cordis.patch.yml  bundle 声明
 edge-tts neural voices into the harness: pick a voice, rate and pitch under *Settings › 鲸语*,
 and every assistant message gets a **🔊 Read aloud** button (plus optional auto-speak).
 
-Requires Python 3.8+. Run `npm run setup` once to install the Python dependencies into
-`pylibs/`, install this directory as a bundle into your Harness profile, then reload and
-refresh. Audio is synthesized locally; only the text to be spoken is sent to Microsoft's
+Requires Python 3.8+. Run `py -m pip install --upgrade --target pylibs edge-tts` once (or
+`npm run setup`) to install the Python dependencies into `pylibs/`, install this directory as a
+bundle into your Harness profile, then reload and refresh. Audio is synthesized locally; only the text to be spoken is sent to Microsoft's
 speech service. Licensed MIT.
