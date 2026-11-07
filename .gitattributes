@@ -1,0 +1,4 @@
+# 统一用 LF，避免 Windows 上的 CRLF 让脚本带 BOM/换行差异
+* text=auto eol=lf
+*.png binary
+*.mp3 binary

@@ -1,0 +1,70 @@
+{
+  "name": "dsh-whale-voice",
+  "version": "0.1.0",
+  "description": "鲸语 —— 让 DeepSeek Harness 开口说话：内置海星风格的神经语音（edge-tts），可调音色、语速、音调，每条回复都能一键朗读。",
+  "type": "module",
+  "main": "lib/index.mjs",
+  "files": [
+    "lib",
+    "tts.py",
+    "scripts",
+    "locale",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "~3.18.4"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "tts",
+    "edge-tts",
+    "voice",
+    "text-to-speech",
+    "whale"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-name/dsh-whale-voice.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-name/dsh-whale-voice/issues"
+  },
+  "homepage": "https://github.com/your-name/dsh-whale-voice#readme"
+}

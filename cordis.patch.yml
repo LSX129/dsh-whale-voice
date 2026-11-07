@@ -1,0 +1,10 @@
+# dsh-whale-voice bundle patch：向 profile 注入「鲸语」语音插件行。
+# host half（lib/index.mjs）注册 edge-tts 合成路由与 Config（volatile 的 voice / rate /
+# pitch / autoSpeak / python / pylibs，改动实时生效不用重启）；
+# client half（lib/client.js）由 __ModuleLoader__ 挂载设置里的一页「鲸语」，
+# 以及每条助手回复下方的朗读按钮。
+# 下面 insert 的 id 就是 host 侧配置命名空间，client half 以它调用 configForms.get()，
+# 两边必须一致；改动前请同步 lib/client.js 的 NAMESPACE。
+- insert:
+    - id: whale-voice
+      name: 'dsh-whale-voice'

@@ -1,0 +1,21 @@
+# 依赖与产物（仓库不提交第三方 Python 代码，克隆后跑 `npm run setup` 装回来）
+pylibs/
+
+# Node
+node_modules/
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 本地实验
+*.log
+*.tmp
+_t*.py
+_test_*.js
+bili_credential.json

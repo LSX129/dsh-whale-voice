@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="whaleVoiceGrad" x1="8" y1="12" x2="56" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5B8DEF"/>
+      <stop offset="1" stop-color="#2F4FD1"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#whaleVoiceGrad)"/>
+  <path d="M14 40c0-8 6.4-14.4 14.4-14.4h9.2c1.6 0 2.8-1.2 2.8-2.8v-1.6c0-1.2 1.6-1.8 2.4-.8l6.8 8.8c.6.8.6 1.9 0 2.7l-6.8 8.8c-.8 1-2.4.4-2.4-.8v-1.6c0-1.6-1.2-2.8-2.8-2.8h-9.2C22 35.5 20 37.5 20 40v4c0 1.1-.9 2-2 2h-2c-1.1 0-2-.9-2-2v-4z" fill="#FFFFFF" fill-opacity="0.95"/>
+  <path d="M14.5 30c1.6-3 4.3-5 7.5-5.6" stroke="#BFD3FF" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="44" cy="19" r="2.4" fill="#BFD3FF"/>
+  <path d="M38 22.5c1.2 2 1.9 4.2 1.9 6.5" stroke="#BFD3FF" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.85"/>
+</svg>
