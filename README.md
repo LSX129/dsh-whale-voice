@@ -26,7 +26,7 @@
 ### 1. 取回代码
 
 ```bash
-git clone https://github.com/your-name/dsh-whale-voice.git
+git clone https://github.com/LSX129/dsh-whale-voice.git
 ```
 
 ### 2. 装 Python 依赖（只需一次）

@@ -61,10 +61,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-name/dsh-whale-voice.git"
+    "url": "git+https://github.com/LSX129/dsh-whale-voice.git"
   },
   "bugs": {
-    "url": "https://github.com/your-name/dsh-whale-voice/issues"
+    "url": "https://github.com/LSX129/dsh-whale-voice/issues"
   },
-  "homepage": "https://github.com/your-name/dsh-whale-voice#readme"
+  "homepage": "https://github.com/LSX129/dsh-whale-voice#readme"
 }
