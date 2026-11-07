@@ -14,42 +14,56 @@
 
 ## 安装 / 更新
 
-### 先把 Python 依赖装上（只需一次）
+> **本插件没有发布到 npm，也没有上架任何插件市场。**
+> 所以「添加插件」对话框里**填包名（`dsh-whale-voice`）是装不上的**——那个输入框只有走 npm 时才认包名。
+> 请用下面两种方式之一：填 **GitHub 仓库地址**，或先克隆到本地再填**目录路径**。
 
-仓库不提交第三方 Python 代码，克隆后跑一次：
+### 方式一：填 GitHub 地址
+
+在 **Add plugin** 对话框里粘贴仓库地址，点 **Install**：
+
+```text
+https://github.com/LSX129/dsh-whale-voice
+```
+
+装完之后补一次 Python 依赖（仓库不提交第三方代码）：
+
+```bash
+cd "<插件目录>"
+py -m pip install --upgrade --target pylibs edge-tts    # macOS / Linux: python3 -m pip ...
+```
+
+> 插件目录一般在 `~/.dsh/profiles/<profile>/node_modules/dsh-whale-voice`
+> （Windows：`C:\Users\<你>\.dsh\profiles\<profile>\node_modules\dsh-whale-voice`）。
+
+### 方式二：克隆到本地再装
 
 ```bash
 git clone https://github.com/LSX129/dsh-whale-voice.git
 cd dsh-whale-voice
-py -m pip install --upgrade --target pylibs edge-tts    # macOS / Linux: python3 -m pip ...
+py -m pip install --upgrade --target pylibs edge-tts
 ```
+
+然后在 **Add plugin** 里填这个目录的绝对路径，例如 `D:\tools\dsh-whale-voice`。
 
 > Windows 上 `py` 是 Python 官方启动器；用别的解释器就换成你自己的 `python`。
 > 仓库里也带了等价脚本 `node scripts/setup.mjs`——它会顺带处理 pip 跨盘移动的临时目录问题，有 Node 环境时更稳。
 
-### 在 DeepSeek Harness 网页版或桌面版中安装
+### 装完重载
 
-在 **Add plugin** 向导的输入框里填写 GitHub 仓库地址或本地目录路径，然后点击 **Install**：
+把「鲸语」**关掉再打开**重载一次（只改文件不重载不生效），刷新页面，打开 **设置 › 鲸语**，挑一个音色、点「试听这一档」。
 
-![在 Add plugin 向导中安装](docs/install-dialog.png)
+### 更新
 
-装好后把「鲸语」**关掉再打开**重载一次，刷新页面，打开 **设置 › 鲸语** 挑一个音色、点「试听这一档」。
-
-### 使用 dsh CLI 安装
-
-从本地目录安装 `dsh-whale-voice` 插件：
+没有 npm 包，所以 `update <包名>@latest` 那条命令用不上。直接拉代码：
 
 ```bash
-dsh plugin --profile web add D:\path\to\dsh-whale-voice
+cd <插件目录>
+git pull
+py -m pip install --upgrade --target pylibs edge-tts
 ```
 
-或更新 `dsh-whale-voice` 插件：
-
-```bash
-dsh plugin --profile web update dsh-whale-voice@latest
-```
-
-> `--profile web` 换成你实际在用的 profile；CLI 参数以你的 DSH 版本为准，装不上就走上面的图形界面。
+然后再关掉再打开一次。
 
 卡住了看下面的[详细安装](#详细安装)和[已知限制](#已知限制)。
 
